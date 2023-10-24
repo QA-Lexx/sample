@@ -135,8 +135,7 @@ class ChangeTextTest {
         device.findObject(By.res(packageName, "buttonActivity")).click()
         val fullResult = device.findObject(By.res(packageName, "textToBeChanged")).text
 
-        val launcherPackage = device.launcherPackageName
-        device.wait(Until.hasObject(By.pkg(launcherPackage)), TIMEOUT)
+        device.wait(Until.hasObject(By.res(packageName, "text")), TIMEOUT)
         val activityResult = device.findObject(By.res(packageName, "text")).text
 
         assertEquals(fullResult, activityResult)
